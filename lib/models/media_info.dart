@@ -3,12 +3,14 @@ class MediaInfo {
   final String thumbnailUrl;
   final Duration? duration;
   final List<MediaFormat> formats;
+  final String source; // 'YouTube', 'Facebook', 'Instagram', etc.
 
   MediaInfo({
     required this.title,
     required this.thumbnailUrl,
     required this.duration,
     required this.formats,
+    this.source = 'Unknown',
   });
 }
 
