@@ -94,6 +94,9 @@ class DownloadService {
       type: type,
       date: DateTime.now(),
       status: DownloadStatus.running,
+      sizeBytes: format.sizeBytes,
+      durationSeconds: info.duration?.inSeconds,
+      thumbnailUrl: info.thumbnailUrl,
     );
 
     await HistoryService.saveItem(item);

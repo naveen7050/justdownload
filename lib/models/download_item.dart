@@ -10,6 +10,9 @@ class DownloadItem {
   final String taskId;
   final int progress;
   final DownloadStatus status;
+  final int? sizeBytes;
+  final int? durationSeconds;
+  final String? thumbnailUrl;
 
   DownloadItem({
     required this.id,
@@ -23,6 +26,9 @@ class DownloadItem {
     this.taskId = '',
     this.progress = 0,
     this.status = DownloadStatus.queued,
+    this.sizeBytes,
+    this.durationSeconds,
+    this.thumbnailUrl,
   });
 
   Map<String, dynamic> toMap() {
@@ -38,6 +44,9 @@ class DownloadItem {
       'taskId': taskId,
       'progress': progress,
       'status': status.index,
+      'sizeBytes': sizeBytes,
+      'durationSeconds': durationSeconds,
+      'thumbnailUrl': thumbnailUrl,
     };
   }
 
@@ -54,6 +63,9 @@ class DownloadItem {
       taskId: map['taskId'],
       progress: map['progress'],
       status: DownloadStatus.values[map['status']],
+      sizeBytes: map['sizeBytes'] as int?,
+      durationSeconds: map['durationSeconds'] as int?,
+      thumbnailUrl: map['thumbnailUrl'] as String?,
     );
   }
 
@@ -69,6 +81,9 @@ class DownloadItem {
     String? taskId,
     int? progress,
     DownloadStatus? status,
+    int? sizeBytes,
+    int? durationSeconds,
+    String? thumbnailUrl,
   }) {
     return DownloadItem(
       id: id ?? this.id,
@@ -82,6 +97,9 @@ class DownloadItem {
       taskId: taskId ?? this.taskId,
       progress: progress ?? this.progress,
       status: status ?? this.status,
+      sizeBytes: sizeBytes ?? this.sizeBytes,
+      durationSeconds: durationSeconds ?? this.durationSeconds,
+      thumbnailUrl: thumbnailUrl ?? this.thumbnailUrl,
     );
   }
 }
